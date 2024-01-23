@@ -55,7 +55,7 @@ const AssinadorForm: React.FC<AssinadorFormProps> = (props) => {
                        required/>
 
                 <Button>
-                    {formulario.codigo ? 'Atualizar' : 'Salvar'}
+                    {formulario.id ? 'Atualizar' : 'Salvar'}
                 </Button>
             </Form>
         </Box>

@@ -2,25 +2,25 @@ import Assinador from "../../../models/assinador";
 
 const Assinadores: Assinador[] = [
     {
-        codigo: '1',
+        id: '1',
         nome: 'Cookie',
         crm: 'CRM',
         estado: 'GO'
     },
     {
-        codigo: '2',
+        id: '2',
         nome: 'Milk 1l',
         crm: 'CRM',
         estado: 'GO'
     },
     {
-        codigo: '3',
+        id: '3',
         nome: 'Detergent',
         crm: 'CRM',
         estado: 'GO'
     },
     {
-        codigo: '4',
+        id: '4',
         nome: 'Water 1l',
         crm: 'CRM',
         estado: 'GO'

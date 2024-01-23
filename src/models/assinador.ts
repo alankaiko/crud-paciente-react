@@ -1,5 +1,5 @@
 export default interface Assinador {
-    codigo: string;
+    id: string;
     nome: string;
     crm: string;
     estado: string;

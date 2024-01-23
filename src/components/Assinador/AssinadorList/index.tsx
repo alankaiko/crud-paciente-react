@@ -1,8 +1,13 @@
 import React, {useState} from "react";
 import {Cabecalho} from "../../../utils/itens-tabela/cabecalho";
 import Assinador from "../../../models/assinador";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import {Box, IconButton} from "@mui/material";
 import Swal from 'sweetalert2'
-import Table from "../../../shared/index";
+import styles from './styles.module.scss';
+import Assinadores from "./AssinadorTable.mockdata";
+import {DataGrid, GridColDef} from "@mui/x-data-grid";
 
 const cabecalhoAssinador: Cabecalho[] = [
     {chave: 'codigo', valor: '#'},
@@ -16,8 +21,6 @@ declare interface AssinadorProps {
 }
 
 const AssinadorList: React.FC<AssinadorProps> = (props) => {
-
-    const [atualizarProduto, setAtualizarProduto] = useState<Assinador | undefined>(undefined);
 
     const detalhar = (assinador: Assinador) => {
         Swal.fire(
@@ -37,22 +40,65 @@ const AssinadorList: React.FC<AssinadorProps> = (props) => {
             cancelButtonColor: '#d33',
             confirmButtonText: `deletar!`
         })
-            .then(({value}) => value && deletarAssinador(assinador.codigo))
+            .then(({value}) => value && deletarAssinador(assinador.id))
     }
 
     const deletarAssinador = async (codigo: string) => {
 
     }
 
-    return <>
-        <Table cabecalho={cabecalhoAssinador}
-               dados={props.assinadores}
-               acoes
-               deletar={deletar}
-               editar={setAtualizarProduto}
-               detalhes={detalhar}>
-        </Table>
-    </>
+    const colunaAssinadores: GridColDef[] = [
+        {field: "id", headerName: "Código", width: 100},
+        {field: "nome", headerName: "Nome", width: 600},
+        {field: "crm", headerName: "CRM", width: 100},
+        {field: "estado", headerName: "UF", width: 100},
+        {
+            field: "Editar",
+            renderCell: (cellValues) => {
+                const dataGridValue = cellValues;
+                return (
+                    <IconButton
+                        sx={{display: "flex", alignItems: "center"}}
+                        onClick={() => {
+                        }}
+                    >
+                        <EditIcon/>
+                    </IconButton>
+                );
+            },
+            width: 130,
+        },
+        {
+            field: "Excluir",
+            renderCell: (cellValues) => {
+                return (
+                    <IconButton
+                        sx={{display: "flex", alignItems: "center"}}
+                        onClick={() => {
+                        }}
+                    >
+                        <DeleteIcon/>
+                    </IconButton>
+                );
+            },
+            width: 130,
+        }
+    ];
+
+    return (
+        <Box>
+            <Box className={styles.container}>
+                <Box className={styles.table}>
+                    <DataGrid
+                        rows={Assinadores || []}
+                        columns={colunaAssinadores}
+                        pageSize={5}
+                        rowsPerPageOptions={[5]}
+                    />
+                </Box>
+            </Box>
+        </Box>
+    )
 }
 
 export default AssinadorList;

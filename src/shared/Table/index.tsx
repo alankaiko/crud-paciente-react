@@ -1,7 +1,8 @@
 import React from "react";
-import {Cabecalho} from "../utils/itens-tabela/cabecalho";
-import organizar from "../utils/itens-tabela/dados-tabela-generica";
-import Button from "./Button/index";
+import {Cabecalho} from "../../utils/itens-tabela/cabecalho";
+import organizar from "../../utils/itens-tabela/dados-tabela-generica";
+import Button from "../Button/index";
+import styles from './styles.module.scss';
 
 declare interface TableProps {
     cabecalho: Cabecalho[];
@@ -17,7 +18,7 @@ declare interface TableProps {
 const Table: React.FC<TableProps> = (props) => {
     const [dadosOrganizados, cabecalhoIndexado] = organizar(props.dados, props.cabecalho);
 
-    return <table className='tabela'>
+    return <table className={styles.AppTable}>
         <thead>
         <tr>
             {
@@ -45,7 +46,7 @@ const Table: React.FC<TableProps> = (props) => {
                             .keys(linha)
                             .map((item, indexLinha) =>
                                 item !== '$original'
-                                    ? <td key={linha.$original.codigo + 1}
+                                    ? <td key={linha.$original.codigo + indexLinha}
                                           className={cabecalhoIndexado[item].alinhadoDireita ? 'right' : ''}>
 
                                         {linha[item]}
