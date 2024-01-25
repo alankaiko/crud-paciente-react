@@ -1,3 +1,3 @@
-export default interface Hospital {
+export default class Hospital {
     nome: string;
 }

@@ -1,3 +1,3 @@
-export default interface Paciente {
+export default class Paciente {
     nome: string;
 }

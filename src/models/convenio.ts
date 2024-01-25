@@ -1,3 +1,3 @@
-export default interface Convenio {
+export default class Convenio {
     nome: string;
 }

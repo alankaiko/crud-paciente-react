@@ -1,6 +1,6 @@
-import Assinador from "../../../models/assinador";
+import Assinador from "../models/assinador";
 
-const Assinadores: Assinador[] = [
+const AssinadoresMockData: Assinador[] = [
     {
         id: '1',
         nome: 'Cookie',
@@ -27,4 +27,4 @@ const Assinadores: Assinador[] = [
     }
 ]
 
-export default Assinadores
+export default AssinadoresMockData

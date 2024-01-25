@@ -1,4 +1,4 @@
-export default interface Assinador {
+export default class Assinador {
     id: string;
     nome: string;
     crm: string;

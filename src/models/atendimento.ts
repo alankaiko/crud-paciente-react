@@ -4,7 +4,7 @@ import Hospital from "./hospital";
 import Medico from "./medico";
 import Convenio from "./convenio";
 
-export default interface Atendimento {
+export default class Atendimento {
     procedimento: string;
     leito: string;
     data: Date;
