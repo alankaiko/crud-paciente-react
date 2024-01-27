@@ -46,7 +46,7 @@ const Table: React.FC<TableProps> = (props) => {
                             .keys(linha)
                             .map((item, indexLinha) =>
                                 item !== '$original'
-                                    ? <td key={linha.$original.codigo + indexLinha}
+                                    ? <td key={linha.$original.id + indexLinha}
                                           className={cabecalhoIndexado[item].alinhadoDireita ? 'right' : ''}>
 
                                         {linha[item]}

@@ -1,32 +1,37 @@
 import React, {useEffect, useState} from "react";
 import Assinador from "../../models/assinador";
 import {Box} from "@mui/material";
+import * as AssinadorService from "../../services/Assinador.service";
+import LinkCustom from "../../components/LinkCustom/index";
 import Form from "../../components/Form/index";
 import Input from "../../components/Input/index";
 import Button from "../../components/Button/index";
-import * as AssinadorService from "../../services/Assinador.service";
-import LinkCustom from "../../components/LinkCustom/index";
 
 export default function PaginaAssinadorCadastro() {
-    const [formulario, setFormulario] = useState<Assinador>({} as Assinador);
+    const formularioInicial = {
+        nome: '',
+        crm: '',
+        estado: ''
+    } as Assinador;
+
+    const [formulario, setFormulario] = useState(formularioInicial);
 
     useEffect(() => {
-        formulario ? setFormulario(formulario) : setFormulario(new Assinador)
-    }, [formulario]);
+        setFormulario(formularioInicial)
+    }, []);
 
     const inputMudou = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const {value, nome} = event.target;
+        const {value, name} = event.target
 
         setFormulario({
             ...formulario,
-            [nome]: value
+            [name]: value
         })
     }
 
     const submeter = () => {
-        console.log('tetstes');
         AssinadorService.criar(formulario).then(response => setFormulario(response));
-        setFormulario(new Assinador);
+        setFormulario(formularioInicial);
     }
 
     return <Box>
@@ -34,21 +39,21 @@ export default function PaginaAssinadorCadastro() {
 
         <Box>
             <Form title='Adicionar Assinador' onSubmit={submeter}>
-                <Input onChange={inputMudou}
-                       value={formulario.nome}
+                <Input value={formulario.nome}
+                       onChange={inputMudou}
                        name="nome"
                        label="Nome"
                        placeholder="Nome"
                        required/>
 
-                <Input onChange={inputMudou}
-                       value={formulario.crm}
+                <Input value={formulario.crm}
                        name="crm"
+                       onChange={inputMudou}
                        label="CRM"/>
 
-                <Input onChange={inputMudou}
-                       value={formulario.estado}
+                <Input value={formulario.estado}
                        name="estado"
+                       onChange={inputMudou}
                        label="UF"/>
 
                 <Button>

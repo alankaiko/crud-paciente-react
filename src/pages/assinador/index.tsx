@@ -8,7 +8,7 @@ import {Box} from "@mui/system";
 import LinkCustom from "../../components/LinkCustom/index";
 
 const cabecalhoAssinador: Cabecalho[] = [
-    {chave: 'codigo', valor: '#'},
+    {chave: 'id', valor: '#'},
     {chave: 'nome', valor: 'Nome'},
     {chave: 'crm', valor: 'CRM'},
     {chave: 'estado', valor: 'UF'}
@@ -42,7 +42,7 @@ export default function PaginaAssinador() {
             .then(({value}) => value && deletarAssinador(assinador.id))
     }
 
-    const deletarAssinador = async (codigo: string) => {
+    const deletarAssinador = async (id: string) => {
 
     }
 

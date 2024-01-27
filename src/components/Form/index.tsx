@@ -1,28 +1,28 @@
-import React from "react";
+import React from 'react'
 
 declare interface FormProps {
-    title?: string;
-    onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
-    children: JSX.Element | JSX.Element[];
-
+    title?: string
+    onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void
+    children: JSX.Element | JSX.Element[]
 }
 
-const Form: React<FormProps> = (props) => {
+const Form: React.FC<FormProps> = (props) => {
     const preventedSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        props.onSubmit && props.onSubmit(event);
+        event.preventDefault()
+        props.onSubmit && props.onSubmit(event)
     }
 
-    return <form className='formulario' onSubmit={preventedSubmit}>
+    return <form
+        className="AppForm"
+        onSubmit={preventedSubmit}
+    >
         {
-            props.title && <div className='title'>
+            props.title && <div className="Title">
                 {props.title}
             </div>
         }
-        {
-            props.children
-        }
+        {props.children}
     </form>
 }
 
-export default Form;
+export default Form
