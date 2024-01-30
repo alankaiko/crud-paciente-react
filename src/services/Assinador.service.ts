@@ -5,16 +5,16 @@ export async function listar(): Promise<Assinador[]> {
     return await http.get<Assinador[]>('/assinador').then(response => response.data as Assinador[]);
 }
 
+export async function buscarPorId(id: number): Promise<Assinador> {
+    return await http.get<Assinador>(`/assinador/${id}`).then(response => response.data as Assinador);
+}
+
 export async function criar(assinador: Assinador): Promise<Assinador> {
     return await http.post<Assinador>('/assinador', assinador) as Assinador;
 }
 
 export async function atualizar(assinador: Assinador): Promise<Assinador> {
-    return await http.patch(`/assinador/${assinador.id}`, {
-        ...(assinador.nome),
-        ...(assinador.crm),
-        ...(assinador.estado)
-    }) as Assinador;
+    return await http.put(`/assinador/${assinador.id}`, assinador) as Assinador;
 }
 
 export async function deletar(id: string) {
