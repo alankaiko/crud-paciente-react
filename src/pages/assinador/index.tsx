@@ -57,6 +57,10 @@ export default function ListaAssinador() {
                 <Link href="/assinador/cadastrar">
                     <span>Novo Assinador</span>
                 </Link>
+
+                <Link href="/">
+                    <span>Tela inicial</span>
+                </Link>
             </div>
 
             <Table cabecalho={cabecalho}

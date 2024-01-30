@@ -54,9 +54,8 @@ function AssinadorCadastro(props: AssinadorProps) {
         } as Assinador;
 
         AssinadorService.atualizar(assinador).then(response => {
-            if (response) {
+            if (response)
                 router.push('/assinador');
-            }
         });
     }
 
@@ -68,9 +67,8 @@ function AssinadorCadastro(props: AssinadorProps) {
         } as Assinador;
 
         AssinadorService.criar(assinador).then(response => {
-            if (response) {
+            if (response)
                 router.push('/assinador');
-            }
         });
     }
 
@@ -107,6 +105,10 @@ function AssinadorCadastro(props: AssinadorProps) {
 
         <Link href="/assinador">
             <span>Voltar</span>
+        </Link>
+
+        <Link href="/">
+            <span>Tela inicial</span>
         </Link>
     </Form>
 }

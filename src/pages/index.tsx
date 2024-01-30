@@ -8,6 +8,10 @@ export default function Home() {
                 <Link href="/assinador">
                     <span>Assinador</span>
                 </Link>
+
+                <Link href="/convenio">
+                    <span>Convênio</span>
+                </Link>
             </div>
         </div>
     )
