@@ -43,7 +43,7 @@ export default function ListaConvenio() {
 
     async function deletar(id: string) {
         ConvenioService.deletar(id).then(() => {
-            Swal.fire('Uhul!', 'Assinador deletado', 'success');
+            Swal.fire('Uhul!', 'Convênio deletado', 'success');
             carregarConvenios();
         })
     }
