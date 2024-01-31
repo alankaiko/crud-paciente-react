@@ -27,6 +27,12 @@ export default function Home() {
                     <span>Médico</span>
                 </Link>
             </div>
+
+            <div className="flex flex-col">
+                <Link href="/paciente">
+                    <span>Paciente</span>
+                </Link>
+            </div>
         </div>
     )
 }

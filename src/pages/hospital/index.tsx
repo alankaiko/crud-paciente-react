@@ -43,7 +43,7 @@ export default function ListaHospital() {
 
     async function deletar(id: string) {
         HospitalService.deletar(id).then(() => {
-            Swal.fire('Uhul!', 'Assinador deletado', 'success');
+            Swal.fire('Uhul!', 'Hospital deletado', 'success');
             carregarHospitais();
         })
     }
