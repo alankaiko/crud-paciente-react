@@ -5,6 +5,7 @@ import Medico from "./medico";
 import Convenio from "./convenio";
 
 export default class Atendimento {
+    id: string;
     procedimento: string;
     leito: string;
     data: Date;
